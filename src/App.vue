@@ -1,6 +1,9 @@
 <template>
   <div>
     <h1>{{ message }}</h1>
+    <p class="text-red-500">
+      kron
+    </p>
   </div>
 </template>
 <script setup>
