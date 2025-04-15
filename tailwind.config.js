@@ -6,7 +6,15 @@ export default {
   ]
   ,
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        textPrimary: "#333333"
+      },
+      fontFamily:{
+        gelasio:["Gelasio", "serif"],
+      },
+
+    },
   },
   plugins: [],
 }
