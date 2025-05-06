@@ -8,7 +8,7 @@ import FooterDefault from '@/components/default/general/FooterDefault.vue';
 </script>
 <template>
     <main class="px-4">
-     <DefaultHeaderder />
+     <DefaultHeader />
         <!--endheader-->
         <!--contect-->
         <div class=" wrapper min-h-[80vh]">

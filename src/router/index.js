@@ -4,7 +4,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'defaultLayout',
+      name: 'DefaultLayout',
       component: () => import('@/layouts/DefaultLayout.vue'),
       children: [
         {
@@ -14,18 +14,35 @@ const router = createRouter({
         },
         {
           path: 'privacy-policy',
-          name: 'privacyPolicy',
-          component: () => import('@/views/PrivacyPolicy.vue'),
+          name: 'PrivacyPolicy',
+          component: () => import('@/components/default/PrivacyPolicy.vue'),
+          meta: {
+            visitor: true,
+          }
         },
         {
           path: 'terms-of-service',
-          name: 'termsOfService',
-          component: () => import('@/views/TermsOfService.vue'),
+          name: 'TermsOfService',
+          component: () => import('@/components/default/TermsOfService.vue'),
+          meta: {
+            visitor: true,
+          }
         },
         {
           path: 'contact',
           name: 'ContactPage',
-          component: () => import('@/views/ContactPageView.vue'),
+          component: () => import('@/components/default/ContactPage.vue'),
+          meta: {
+            visitor: true,
+          }
+        },
+        {
+          path: 'about-us',
+          name: 'AboutUs',
+          component: () => import('@/views/AboutUsView.vue'),
+          meta: {
+            visitor: true,
+          }
         },
       ],
     },
