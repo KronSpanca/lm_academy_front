@@ -3,12 +3,13 @@ import { ref } from 'vue';
 import Axios from '@/utils/axios';
 import { useRouter } from 'vue-router';
 import { useUserStore } from '@/stores/useUserStore';
+import { toast } from 'vue3-toastify';
 
 const email = ref('');
 const password = ref('');
 const router = useRouter()
 
-const userStore = useUserStore
+const userStore = useUserStore()
 const handleSubmit = async () => {
   // call ni api
   try {
@@ -19,23 +20,21 @@ const handleSubmit = async () => {
   
 
     const response = await Axios.post("/auth/login", data);
+      
     if (response.status == 200){
+      console.log("response: ",response)
       const access_token = response?.data?.access_token
       const authUser = response?.data?.user;
       localStorage.setItem("lm-access-token", access_token)
       userStore.setUser(authUser)
       router.push('/dashboard')
-      router.push('/dashboard')
-
-
-      const getRoles = await Axios.post("/auth/user-profile", data)
-   
-     
-
+  
+      const getRoles = await Axios.get("/auth/user-profile", data)
     }
     console.log("response", response);
   } catch (error) {
-    console.error("error", error);
+    toast.error(error.response?.data?.message);
+    console.error("error", error.response?.data?.message);
   }
 };
 </script>
@@ -60,7 +59,7 @@ const handleSubmit = async () => {
                                 </div>
                                 <!-- password -->
                                 <div class="mb-6">
-                                    <label for="forPassword"
+                                      <label for="forPassword"
                                     class="block text-sm  mb-2 text-gray-400">Password</label>
                                 <input
                                 v-model="password"

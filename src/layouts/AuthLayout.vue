@@ -11,7 +11,7 @@ import AuthFooter from '@/components/auth/AuthFooter.vue';
                    <router-view />
 				
 			
-        <AuthFooterer />
+        <AuthFooter />
         
          </div>
 		<!--end of project-->

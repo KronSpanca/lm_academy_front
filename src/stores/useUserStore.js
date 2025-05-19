@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import Axios from '@/utils/axios'
 import { useRouter } from 'vue-router'
+import Axios from '@/utils/axios'
+
 
 
 export const useUserStore = defineStore('user', () => {
@@ -17,7 +18,7 @@ export const useUserStore = defineStore('user', () => {
   async function logout() {
     try {
       await Axios.post('/auth/logout')
-      localStorage.removeItem('lm-access-token')
+      localStorage.removeItem('lm_access_token')
 
       user.value = {}
       isUserLoggedIn.value = false
